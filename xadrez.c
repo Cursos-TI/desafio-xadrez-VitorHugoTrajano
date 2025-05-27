@@ -16,34 +16,41 @@ int main(){
         printf("1. Bispo, o Bispo andará 5 casas na diagonal para direita.\n");
         printf("2. Torre, a Torre andará 5 casas a direita.\n");
         printf("3. Rainha, a Rainha andará 8 casas a esquerda.\n");
-        printf("4. Sair do programa.\n");
+        printf("4. Cavalo, o Cavalo irá fazer um movimento em L.\n");
+        printf("5. Sair do programa.\n");
         printf("Escolha uma das opções: ");
         scanf("%d", &opcao);
 
         
         if(opcao == 1){// Implementação de Movimentação do Bispo
             for(int i = 1; i <= 5; i++) {
-                printf("%d° casa para cima.\n", i);
-                printf("%d° casa para direita.\n", i);
+                printf("%dª casa para cima.\n", i);
+                printf("%dª casa para direita.\n", i);
             }
         } else if(opcao == 2) {// Implementação de Movimentação do Torre
             for(int i = 1; i <= 5; i ++) {
-                printf("%d° casa a direita.\n", i);
+                printf("%dª casa a direita.\n", i);
             }
         } else if(opcao == 3) {// Implementação de Movimentação do Rainha
             for(int i = 1; i <= 8; i ++) {
-                printf("%d° casa a esquerda.\n", i);
+                printf("%dª casa a esquerda.\n", i);
             }
-        }else if(opcao == 4){
+        }else if(opcao == 4){//Nível aventureiro - loops aninhados, implementando o movimento do Cavalo.
+            int i, j;
+            for(int i = 1; i <= 2; i++){
+                printf("%dª casa para baixo.\n", i);
+                for(j = 1; j < i; j++){
+                    printf("%dª casa para esquerda.\n", j);
+                }
+            }
+            printf("\n");
+        }else if(opcao == 5){
             printf("Finalizando o programa...\n");
         }else {
             printf("Opção inválida, o programa será finalizado...");
         }
-    }while(opcao >= 1 && opcao <= 3);
+    }while(opcao >= 1 && opcao <= 4);
     
-    // Implementação de Movimentação da Rainha
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação da Rainha para a esquerda.
-
     // Nível Aventureiro - Movimentação do Cavalo
     // Sugestão: Utilize loops aninhados para simular a movimentação do Cavalo em L.
     // Um loop pode representar a movimentação horizontal e outro vertical.
