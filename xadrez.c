@@ -1,8 +1,27 @@
 #include <stdio.h>
 
 // Desafio de Xadrez - MateCheck
-// Este código inicial serve como base para o desenvolvimento do sistema de movimentação das peças de xadrez.
-// O objetivo é utilizar estruturas de repetição e funções para determinar os limites de movimentação dentro do jogo.
+void movimentoBispo(int i) {
+    if(i < 6){
+        printf("%dª casa para cima.\n", i);
+        printf("%dª casa para direita.\n", i);
+        movimentoBispo(i + 1);
+    }
+}
+
+void movimentoTorre(int i){
+    if(i < 6){
+        printf("%dª casa a direita.\n", i);
+        movimentoTorre(i + 1);
+    }
+}
+
+void movimentoRainha(int i){
+    if(i < 9){
+        printf("%dª casa a esquerda.\n", i);
+        movimentoRainha(i + 1);
+    }
+}
 
 int main(){
     // Nível Novato - Movimentação das Peças
@@ -23,24 +42,22 @@ int main(){
 
         
         if(opcao == 1){// Implementação de Movimentação do Bispo
-            for(int i = 1; i <= 5; i++) {
-                printf("%dª casa para cima.\n", i);
-                printf("%dª casa para direita.\n", i);
-            }
+            int movBispo = 1;
+            movimentoBispo(movBispo);
+            printf("\n");
         } else if(opcao == 2) {// Implementação de Movimentação do Torre
-            for(int i = 1; i <= 5; i ++) {
-                printf("%dª casa a direita.\n", i);
-            }
+            int movTorre = 1;
+            movimentoTorre(movTorre);
+            printf("\n");
         } else if(opcao == 3) {// Implementação de Movimentação do Rainha
-            for(int i = 1; i <= 8; i ++) {
-                printf("%dª casa a esquerda.\n", i);
-            }
+            int movRainha = 1;
+            movimentoRainha(movRainha);
+            printf("\n");
         }else if(opcao == 4){//Nível aventureiro - loops aninhados, implementando o movimento do Cavalo.
-            int i, j;
-            for(int i = 1; i <= 2; i++){
-                printf("%dª casa para baixo.\n", i);
+            for(int i = 1, j = 1; i <= 2; i++){
+                printf("%dª casa para cima.\n", i);
                 for(j = 1; j < i; j++){
-                    printf("%dª casa para esquerda.\n", j);
+                    printf("%dª casa para direita.\n", j);
                 }
             }
             printf("\n");
